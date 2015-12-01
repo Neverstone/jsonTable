@@ -1,6 +1,6 @@
 #include "fileReader.h"
 
-fileReader::fileReader(const char[100] filename) {
+fileReader::fileReader(const char filename[100]) {
 	fileStream.open(filename);
 }
 
@@ -13,7 +13,7 @@ int fileReader::readLines() {
 
 	try {
 		while(getline(fileStream, line)) {
-			data.pushback(line);
+			data.push_back(line);
 		}
 	}
 	catch(const std::exception& e) {
@@ -24,4 +24,4 @@ int fileReader::readLines() {
 	return 0;
 }
 
-vector<string> fileReader::getData() { return data; }
+std::vector<std::string> fileReader::getData() { return data; }

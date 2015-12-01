@@ -1,13 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <fstream>
 
 class fileReader
 {
-	ifstream fileStream;
-	vector<string> data; 
+	std::ifstream fileStream;
+	std::vector<std::string> data; 
 public:
-	fileReader(const char[100]);
-	~fileReader();
+	fileReader(const char filename[100]);
+    ~fileReader();
 	int readLines();
-	vector<string> getData();
+	std::vector<std::string> getData();
 };
