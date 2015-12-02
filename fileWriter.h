@@ -5,11 +5,11 @@
 class fileWriter
 {
 	std::ofstream fileStream;
-	std::vector<std::string> data; 
+	char *data; 
 public:
 	fileWriter(const char filename[100]);
 	~fileWriter();	
 	int writeLines();
-	void setData(int count, string const *arr[]);
+	void setData(char *d);
 	void clearData();
 };

@@ -6,22 +6,27 @@ fileReader::fileReader(const char filename[100]) {
 
 fileReader::~fileReader() {
 	fileStream.close();
+	delete[] data;
 }
 
 int fileReader::readLines() {
-	std::string line;
+	if (fileStream) {
 
-	try {
-		while(getline(fileStream, line)) {
-			data.push_back(line);
-		}
+		fileStream.seekg (0, fileStream.end);
+		int length = fileStream.tellg();
+		fileStream.seekg (0, fileStream.beg);
+
+		data = new char[length];
+
+		fileStream.read(data, length);
+
+		if (fileStream)
+			return 0;
+		else
+			return 1;
 	}
-	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
-		return 1;
-	}
-	
-	return 0;
+	return 1;
 }
 
-std::vector<std::string> fileReader::getData() { return data; }
+
+char *fileReader::getData() { return data; }

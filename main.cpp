@@ -1,11 +1,11 @@
-#include <iostream>
+#include "persons.h"
+#include "cli.h"
+
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	for (int i = 0; i < argc; ++i)
-	{
-		argv[i] = 0;
-	}
+	persons.setFile = argv[1];
+	
 	return 0;
 }

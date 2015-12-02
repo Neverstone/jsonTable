@@ -10,13 +10,12 @@ fileWriter::~fileWriter() {
 
 int fileWriter::writeLines() {
 	
-	
+	outfile.write(data, size);
 	return 0;
 }
 
-void fileWriter::setData(int count, string const *arr[]) { 
-	for (int i = 0; i < count; ++i)
-		data.push_back(arr[i]);
+void fileWriter::setData(char *d, int length) { 
+	data = d;
 }
 
 void fileWriter::clearData() { data.clear(); }

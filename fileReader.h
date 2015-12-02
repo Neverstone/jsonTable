@@ -5,10 +5,10 @@
 class fileReader
 {
 	std::ifstream fileStream;
-	std::vector<std::string> data; 
+	char *data; 
 public:
 	fileReader(const char filename[100]);
     ~fileReader();
 	int readLines();
-	std::vector<std::string> getData();
+	char* getData();
 };
