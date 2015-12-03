@@ -1,25 +1,3 @@
-#include "persons.h"
-
-date::date() : day(0), month(0), year(0) {};
-
-date::date(int d, int m, int y) : day(d), month(m), year(y) {};
-
-string date::toString() {
-	return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
-}
-
-date date::operator=(const date& other) {
-	return date(day = other.day, month = other.month, year = other.year);
-}
-
-person::person() {
-	firstName.clear();
-	lastName.clear();
-	sex = 0;
-	birth = date(0,0,0);
-	death = date(0,0,0);
-	alive = false;
-};
 
 void persons::setFile(char *str){
 	fileName = str;
